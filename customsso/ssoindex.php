@@ -18,7 +18,8 @@ $username  = required_param('username', PARAM_RAW);
 $firstname = optional_param('firstname', '', PARAM_RAW);
 $lastname  = optional_param('lastname', '', PARAM_RAW);
 $email     = optional_param('email', '', PARAM_RAW);
-$crsshortname = optional_param('course', 0, PARAM_INT);
+$password  = optional_param('password', '', PARAM_RAW);
+$crsshortname = optional_param('course', '', PARAM_RAW);
 
 
 // Timestamp Validation.
@@ -35,7 +36,7 @@ local_customsso_hash_validation($hash, $timestamp, $username);
 set_config('lasttimestamp', $timestamp, 'local_customsso');
 
 // Username Validation.
-if ($user = local_customsso_user_exists($username, $firstname, $lastname, $email)) {
+if ($user = local_customsso_user_exists($username, $firstname, $lastname, $email, $password)) {
     // Log user in.
     complete_user_login($user);
 

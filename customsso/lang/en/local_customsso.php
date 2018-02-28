@@ -9,6 +9,7 @@
  * @author    Priya Ramakrishnan, Pukunui {@link http://pukunui.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+$string['error_duplicateemails'] = 'Email addresss entered is already used by another user';
 $string['error_emailmissing'] = 'Username does not exist, new user must have an email address';
 $string['error_firstnamemissing'] = 'Username does not exist, new user must have a first name';
 $string['error_invalidcourseid'] = 'Invalid Course ID';

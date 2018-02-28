@@ -66,12 +66,12 @@ function local_customsso_user_exists($username, $firstname, $lastname, $email, $
        if (!empty($password)) {
            $extuser->password = hash_internal_user_password($password);
        }
-       $extuser->timemodified = $newuser->timecreated;
+       $extuser->timemodified = time();
        $userupd = $DB->update_record('user', $extuser);
        return $userrec;
    } else {
        // Validate user fields and create user.
-       if ((!empty($email)) && (!empty($lastname)) && (!empty($firstname))) {
+       if ((!empty($email)) && (!empty($lastname)) && (!empty($firstname)) && (!empty($password))) {
            if ($useremail = $DB->get_record('user', array('email' => $email))) {
                // Duplicate Email.
                echo get_string('error_duplicateemails', 'local_customsso');
